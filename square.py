@@ -11,10 +11,19 @@ def area(a):
     Возвращает:
         float: площадь квадрата
 
+    Исключения:
+        TypeError: если длина стороны не является числом
+        ValueError: если длина стороны отрицательная
+
     Пример:
-        >>> area(5)
-        25
+        area(5) -> 25
     """
+    if not isinstance(a, (int, float)):
+        raise TypeError("Длина стороны должна быть числом")
+
+    if a < 0:
+        raise ValueError("Длина стороны должна быть положительным числом")
+
     return a * a
 
 
@@ -28,10 +37,19 @@ def perimeter(a):
     Возвращает:
         float: периметр квадрата
 
+    Исключения:
+        TypeError: если длина стороны не является числом
+        ValueError: если длина стороны отрицательная
+
     Пример:
-        >>> perimeter(5)
-        20
+        perimeter(5) -> 20
     """
+    if not isinstance(a, (int, float)):
+        raise TypeError("Длина стороны должна быть числом")
+
+    if a < 0:
+        raise ValueError("Длина стороны должна быть положительным числом")
+
     return 4 * a
     
     

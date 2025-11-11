@@ -12,10 +12,19 @@ def area(a, b):
     Возвращает:
         float: площадь прямоугольника
 
+    Исключения:
+        TypeError: если длина или ширина не являются числами
+        ValueError: если длина или ширина отрицательные
+
     Пример:
-        >>> area(3, 4)
-        12
+        area(3, 4) -> 12
     """
+    if not all(isinstance(x, (int, float)) for x in (a, b)):
+        raise TypeError("Длина и ширина должны быть числами")
+    
+    if a < 0 or b < 0:
+        raise ValueError("Длина и ширина должны быть положительными числами")
+    
     return a * b
 
 
@@ -30,10 +39,19 @@ def perimeter(a, b):
     Возвращает:
         float: периметр прямоугольника
 
+    Исключения:
+        TypeError: если длина или ширина не являются числами
+        ValueError: если длина или ширина отрицательные
+
     Пример:
-        >>> perimeter(3, 4)
-        14
+        perimeter(3, 4) -> 14
     """
+    if not all(isinstance(x, (int, float)) for x in (a, b)):
+        raise TypeError("Длина и ширина должны быть числами")
+    
+    if a < 0 or b < 0:
+        raise ValueError("Длина и ширина должны быть положительными числами")
+    
     return (a + b) * 2
     
     
