@@ -12,10 +12,19 @@ def area(a, h):
     Возвращает:
         float: площадь треугольника
 
+    Исключения:
+        TypeError: если основание или высота не являются числами
+        ValueError: если основание или высота отрицательные
+
     Пример:
-        >>> area(6, 4)
-        12
+        area(6, 4) -> 12
     """
+    if not isinstance(a, (int, float)) or not isinstance(h, (int, float)):
+        raise TypeError("Основание и высота должны быть числами")
+
+    if a < 0 or h < 0:
+        raise ValueError("Основание и высота должны быть положительными числами")
+
     return a * h / 2
 
 
@@ -31,10 +40,19 @@ def perimeter(a, b, c):
     Возвращает:
         float: периметр треугольника
 
+    Исключения:
+        TypeError: если стороны не являются числами
+        ValueError: если хотя бы одна из сторон отрицательная
+
     Пример:
-        >>> perimeter(3, 4, 5)
-        12
+        perimeter(3, 4, 5) -> 12
     """
+    if not all(isinstance(x, (int, float)) for x in (a, b, c)):
+        raise TypeError("Все стороны должны быть числами")
+
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("Все стороны должны быть положительными числами")
+
     return a + b + c
     
     
